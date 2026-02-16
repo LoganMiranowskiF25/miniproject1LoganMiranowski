@@ -20,3 +20,11 @@ for ticker in tickers:
     data = yfinance.download(ticker, period='10d')
     closing_prices = data['Close'].values
     days = np.arange(1, len(closing_prices) + 1)
+
+    # Plot graph
+    plt.figure(figsize=(8,5))
+    plt.plot(days, closing_prices, marker='o', linestyle='-', color='green')
+    plt.title(f"{ticker} Closing Prices for Last 10 Trading Days")
+    plt.xlabel("Day")
+    plt.ylabel("Closing Price")
+    plt.grid(True)
